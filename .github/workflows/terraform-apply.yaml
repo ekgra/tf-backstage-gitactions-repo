@@ -29,10 +29,10 @@ jobs:
         run: terraform init
 
       - name: 'Terraform Plan'
-        run: terraform plan
+        run: terraform plan -var="file_count=${{ fromJSON(github.event.inputs.file_count) }}" -var="file_content='${{ github.event.inputs.file_content }}'"
 
       - name: 'Terraform Apply'
-        run: terraform apply -auto-approve -var="file_count=${{ github.event.inputs.file_count }}" -var="file_content='${{ github.event.inputs.file_content }}'"
+        run: terraform apply -auto-approve -var="file_count=${{ fromJSON(github.event.inputs.file_count) }}" -var="file_content='${{ github.event.inputs.file_content }}'"
       
       # - name: 'Terraform Destroy'
       #   run: terraform destroy -auto-approve
