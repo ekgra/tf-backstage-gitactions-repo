@@ -9,7 +9,7 @@ on:
       file_count:
         description: 'Number of files to create'
         required: true
-        type: string
+        type: number
       file_content:
         description: 'Content of the files'
         required: true
