@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Local-file-base-repo
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  title: Local-file-base-repo
+  description: The base repo for local file backstage template # Change Description accordingly
+spec:
+  type: service
+  owner: ekgra:guests
+  lifecycle: mvp
