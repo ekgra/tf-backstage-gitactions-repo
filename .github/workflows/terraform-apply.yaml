@@ -4,16 +4,16 @@ on:
   push:
     branches:
       - main
-  # workflow_dispatch:
-  #   inputs:
-  #     instance_name:
-  #       description: 'Name of Instance'
-  #       required: true
-  #       type: number
-  #     instance_type:
-  #       description: 'Type of Instance'
-  #       required: true
-  #       type: string
+  workflow_dispatch:
+    inputs:
+      instance_name:
+        description: 'Name of Instance'
+        required: true
+        type: number
+      instance_type:
+        description: 'Type of Instance'
+        required: true
+        type: string
 jobs:
   terraform:
     runs-on: ubuntu-latest
