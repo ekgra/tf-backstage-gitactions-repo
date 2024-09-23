@@ -14,6 +14,7 @@ terraform {
 variable "instance_name" {
   description = "name of EC2 instance"
   type        = string
+  default     = "pushed"
 }
 
 variable "instance_type" {

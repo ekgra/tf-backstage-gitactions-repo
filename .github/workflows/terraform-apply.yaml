@@ -29,10 +29,10 @@ jobs:
         run: terraform init
 
       - name: 'Terraform Plan'
-        run: terraform plan -var="instance_name=${{ github.event.inputs.instance_name }}" -var="instance_type='${{ github.event.inputs.instance_type }}'"
+        run: terraform plan -var="instance_name=${{ github.event.inputs.instance_name }}" -var="instance_type=${{ github.event.inputs.instance_type }}"
 
       - name: 'Terraform Apply'
-        run: terraform apply -auto-approve -var="instance_name=${{ fromJSON(github.event.inputs.instance_name) }}" -var="instance_type='${{ github.event.inputs.instance_type }}'"
+        run: terraform apply -auto-approve -var="instance_name=${{ fromJSON(github.event.inputs.instance_name) }}" -var="instance_type=${{ github.event.inputs.instance_type }}"
       
       # - name: 'Terraform Destroy'
       #   run: terraform destroy -auto-approve
