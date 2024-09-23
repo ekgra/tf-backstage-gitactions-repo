@@ -11,6 +11,11 @@ terraform {
   }
 }
 
+variable "instance_name" {
+  description = "name of EC2 instance"
+  type        = string
+}
+
 variable "instance_type" {
   description = "Type of EC2 instance"
   type        = string
@@ -28,6 +33,6 @@ resource "aws_instance" "example" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "ExampleInstance"
+    Name = var.instance_name
   }
 }
