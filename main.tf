@@ -11,27 +11,23 @@ terraform {
   }
 }
 
-
-provider "local" {}
-
-variable "file_count" {
-  description = "The number of files to create (1 to 3)"
-  type        = number
-  default     = 1
-  validation {
-    condition     = var.file_count >= 1 && var.file_count <= 3
-    error_message = "file_count must be between 1 and 3."
-  }
-}
-
-variable "file_content" {
-  description = "The content to add to the files"
+variable "instance_type" {
+  description = "Type of EC2 instance"
   type        = string
-  default     = "Hello"
+  default     = "t2.micro"
 }
 
-resource "local_file" "example" {
-  count    = var.file_count
-  filename = "${path.module}/example_${count.index + 1}.txt"
-  content  = var.file_content
+variable "ami_id" {
+  description = "AMI ID for the instance"
+  type        = string
+  default     = "ami-0cc51e967b1cbe471" # Replace with your desired AMI
+}
+
+resource "aws_instance" "example" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+
+  tags = {
+    Name = "ExampleInstance"
+  }
 }
