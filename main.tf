@@ -1,15 +1,15 @@
-# provider "aws" {
-#   region = "ap-southeast-2" # e.g., us-west-2
-# }
+provider "aws" {
+  region = "ap-southeast-2" # e.g., us-west-2
+}
 
-# terraform {
-#   backend "s3" {
-#     bucket  = "backstage-tf-state" # S3 bucket name
-#     key     = "terraform.tfstate"  # Path to the state file
-#     region  = "ap-southeast-2"     # AWS region
-#     encrypt = true                 # Enable encryption
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket  = "backstage-tf-state" # S3 bucket name
+    key     = "terraform.tfstate"  # Path to the state file
+    region  = "ap-southeast-2"     # AWS region
+    encrypt = true                 # Enable encryption
+  }
+}
 
 
 provider "local" {}
